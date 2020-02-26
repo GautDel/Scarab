@@ -26,14 +26,19 @@ const Header = () => {
     //LIFECYCLE METHODS //
     const [clock, setClock] = useState('');
     const [day, setDay] = useState('');
+            
+    // Function to format single digit to double digit numbers. ie: 1 => 01
+    const format = (n) => {
+        return n < 10 ? `0${n}` : n;
+    }
 
     useEffect(() => { 
 
         // TIME AND DATE //
         const getTime = () => {
             const date = new Date();
-            setClock(`${date.getHours()}:${date.getMinutes()}`)
-            // SET STATE //
+            
+            setClock(`${format(date.getHours())}:${format(date.getMinutes())}`)
             setDay(`${weekDays[date.getDay()]} ${date.getDate()}, ${months[date.getMonth()]}`)
         }
 
