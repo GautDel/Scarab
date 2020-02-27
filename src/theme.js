@@ -2,21 +2,10 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 // Create a theme instance.
 const theme = createMuiTheme({
-    '@global': {
-    '*::-webkit-scrollbar': {
-        backgroundColor: "rgba(0, 0, 0, 0)",
-      width: '0.4em'
-    },
-    '*::-webkit-scrollbar-track': {
-      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
-    },
-    '*::-webkit-scrollbar-thumb': {
-        backgroundColor: 'rgba(0,0,0,0)',
-    }
-    },
-
-
   palette: {
+      primary: {
+          main: '#536dfe'
+      },
       text: {
           primary: '#263238',
           secondary: '#455a64',

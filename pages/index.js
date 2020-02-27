@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from "@material-ui/core/styles"
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Header from "../components/header/Header";
@@ -18,7 +18,8 @@ const Index = () => {
     '*::-webkit-scrollbar-thumb': {
         backgroundColor: 'rgba(0,0,0,0)',
     }
-    }
+    },
+
     })
 
   return (

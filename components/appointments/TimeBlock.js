@@ -1,8 +1,7 @@
 import TextField from '@material-ui/core/TextField';
 
-const TimeBlock = ({hour, min}) => {
+const TimeBlock = ({hour, min, current}) => {
    
-    // Function to format single digit to double digit numbers. ie: 1 => 01
     const format = (n) => {
         return n < 10 ? `0${n}` : n;
     }
@@ -14,6 +13,7 @@ const TimeBlock = ({hour, min}) => {
             fullWidth={true} 
             size="small" 
             margin="normal"
+            inputRef={current ? input => input && input.focus() : null}
         />
     )
 }

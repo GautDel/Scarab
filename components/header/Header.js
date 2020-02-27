@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import {TimeContext} from '../../context/TimeContext';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -14,37 +15,15 @@ const style = makeStyles({
 });
 
 
-
-
 const Header = () => {
-
-    // VARIABLES //
-    const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];        
+    const {clock, day, getTime} = useContext(TimeContext);
     const classes = style();
 
-    //LIFECYCLE METHODS //
-    const [clock, setClock] = useState('');
-    const [day, setDay] = useState('');
-            
-    // Function to format single digit to double digit numbers. ie: 1 => 01
-    const format = (n) => {
-        return n < 10 ? `0${n}` : n;
-    }
-
     useEffect(() => { 
-
-        // TIME AND DATE //
-        const getTime = () => {
-            const date = new Date();
-            
-            setClock(`${format(date.getHours())}:${format(date.getMinutes())}`)
-            setDay(`${weekDays[date.getDay()]} ${date.getDate()}, ${months[date.getMonth()]}`)
-        }
-
         const tick = setInterval(() => {
-            getTime();
+            getTime(); 
         }, 1000)
+
 
     }, [day, clock])
 

@@ -1,14 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { TimeContext } from "../../context/TimeContext";
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { useTheme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import CreateIcon from '@material-ui/icons/Create';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import TimeBlock from './TimeBlock';
 
-
 // STYLING //
-const styles = makeStyles(theme => ({
+const styles = makeStyles({
     '@global': {
         '*::-webkit-scrollbar': {
             backgroundColor: "rgba(0, 0, 0, 0)",
@@ -24,25 +27,30 @@ const styles = makeStyles(theme => ({
     root: {
         marginTop: "2rem",
         padding: "0.5rem",
-        height: "80vh",
-        overflow: "scroll",
-        overflowX: "hidden"
     },
-    heading: {
-        margin: "1rem 0"
-    }
-}));
+    headerBox: {
+        padding: "1.3rem 0"
+    },
+    box: {
+        height: "70vh",
+        overflow: "scroll",
+        overflowX: "hidden",
+        scrollBehavior: "smooth"
+    },
+});
 
 const Appointment = () => {
     const classes = styles();
-   
+    const { h, m } = useContext(TimeContext);
+
     // State
     const [schedule, setSchedule] = useState([]);
 
     // Lifecycle Hooks
     useEffect(() => {
         renderBlocks();
-    }, []);
+    }, [h, m]);
+
 
     // renderBlocks variables
     let min = 0;
@@ -55,13 +63,12 @@ const Appointment = () => {
 
             // Instantiate new object
             let timeBlock = {
+                id: i,
                 min: min,
-                hour: hour
+                hour: hour,
+                current: false
             }
 
-            // Push new object to array
-            timeBlocks.push(timeBlock);
-            
             // Doing 30 minute increments. Resetting if 30 minutes is hit.
             if(min === 0) {
                 min += 30;
@@ -71,6 +78,25 @@ const Appointment = () => {
                 min = 0
             }
 
+            // Set "current" value to use for auto-focus
+            for(let block of timeBlocks) {
+                if (block.hour === h) {
+                    if (block.min === 30 && m >= 30) {
+                        block.current = true;
+                        console.log(block.id)
+                    } else if(block.min === 0 && m < 30) {
+                        console.log(block.id)
+                        block.current = true;
+                    } else {
+                        block.current = false;
+                    }
+                } else {
+                    block.current = false;
+                }
+            }
+
+            // Push new object to array
+            timeBlocks.push(timeBlock);
         }
         
         // Update state
@@ -81,15 +107,39 @@ const Appointment = () => {
     return (
         <>
             <Paper elevation={3} className={classes.root}>
-                <Typography variant="body1" align="center" className={classes.heading}>
-                    APPOINTMENTS
-                </Typography>
+                <form action="" position="relative">
+                    <Box className={classes.headerBox}>
+                        <Grid container display="row" justify="space-between" alignItems="center">
+                            <Grid item xs={6} sm={3} md={4} lg={3}>
+                                <Typography variant="body1" align="center" className={classes.heading}>
+                                    APPOINTMENTS
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={4} sm={2} md={3} lg={2}>
+                                <Button
+                                    
+                                    variant="contained"
+                                    color="primary"
+                                    startIcon={<CreateIcon />}
+                                > Add</Button>
+
+                            </Grid>
+                        </Grid>
+                    </Box>
+
+                    <Divider variant="middle" />
                 
-                <Divider variant="middle" />
-                
-                {schedule.map(timeBlock => (
-                    <TimeBlock hour={timeBlock.hour} min={timeBlock.min} />
-                ))}
+                    <Box className={classes.box}>
+                        {schedule.map(timeBlock => (
+                            <TimeBlock 
+                                hour={timeBlock.hour} 
+                                min={timeBlock.min} 
+                                key={timeBlock.id}
+                                current={timeBlock.current}
+                            />
+                        ))}
+                    </Box>
+                </form>
             </Paper>
         </>
     )
