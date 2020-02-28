@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Header from "../components/header/Header";
 import Appointment from "../components/appointments/Appointment";
 import Quote from  "../components/quote/Quote";
+import Note from  "../components/notes/Note";
 
 
 const Index = () => {
@@ -30,11 +31,12 @@ const Index = () => {
                   <Header />
               </Grid>
 
-              <Grid item xs={12} md={5}>
+              <Grid item xs={12} md={3}>
                   <Quote/>
+                  <Note /> 
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={4}>
                   <Appointment />
               </Grid>
           </Grid>
