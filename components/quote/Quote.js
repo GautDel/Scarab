@@ -6,11 +6,12 @@ import { makeStyles } from '@material-ui/core/styles';
 const styles = makeStyles({
     paper: {
         padding: "1rem",
-        marginBottom: "3rem" 
+        marginBottom: "3rem",
+        fontStyle: "oblique"
     },
     citation: {
-        fontWeight: "bold",
-        marginLeft: "1rem"
+        marginLeft: "1rem",
+        fontWeight: "bold"
     }
 });
 
@@ -21,10 +22,12 @@ const Quote = () => {
     return (
         <>
             <Paper variant="outlined" className={classes.paper}>
-                <Typography variant="body1" align="center">
+                <Typography variant="body1" align="center" >
                     "The critical ingredient is getting off your butt and doing something. 
                     It’s as simple as that." 
-                    <span className={classes.citation}> Nolan Bushnell</span>
+                    <Typography className={classes.citation} component="span" variant="body1">
+                        Nolan Bushnell
+                    </Typography>
                 </Typography>
             </Paper>
         </>

@@ -32,7 +32,7 @@ const styles = makeStyles({
         padding: "1.3rem 0"
     },
     box: {
-        height: "70vh",
+        height: "55vh",
         overflow: "scroll",
         overflowX: "hidden",
         scrollBehavior: "smooth",
@@ -108,12 +108,12 @@ const Appointment = () => {
                 <form action="" position="relative">
                     <Box className={classes.headerBox}>
                         <Grid container display="row" justify="space-between" alignItems="center">
-                            <Grid item xs={6} sm={3} md={4} lg={5}>
+                            <Grid item xs={6} sm={3} md={5} lg={5}>
                                 <Typography variant="body1" align="center" className={classes.heading}>
                                     APPOINTMENTS
                                 </Typography>
                             </Grid>
-                            <Grid item xs={4} sm={2} md={3} lg={3}>
+                            <Grid item xs={4} sm={2} md={4} lg={3}>
                                 <Button
                                     
                                     variant="contained"

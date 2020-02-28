@@ -30,20 +30,20 @@ const Header = () => {
 
     
     return (
-        <Grid container className={classes.root} direction="row" justify="space-around" alignItems="center">
+        <Grid container className={classes.root} direction="row" justify="space-between" alignItems="center">
             <Grid item xs={2}>
                 <Box>
                     <Time clock={clock} />
                 </Box>
             </Grid>
 
-            <Grid item xs={8}> 
+            <Grid item xs={6} m={7}>
                 <Box>    
                     <Day day={day} />
                 </Box>
             </Grid>
 
-            <Grid item xs={2}>
+            <Grid item xs={3} sm={2}>
                 <Box>
                     <Mode />
                 </Box>

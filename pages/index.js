@@ -31,14 +31,15 @@ const Index = () => {
                   <Header />
               </Grid>
 
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={4}>
                   <Quote/>
+                  <Appointment />
+              </Grid>
+
+              <Grid item xs={12} md={3}>
                   <Note /> 
               </Grid>
 
-              <Grid item xs={12} md={4}>
-                  <Appointment />
-              </Grid>
           </Grid>
       </Container>
   );
