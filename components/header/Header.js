@@ -10,7 +10,8 @@ import Mode from './Mode';
 // STYLING //
 const style = makeStyles({
     root: {
-        paddingTop: "1rem"
+        paddingTop: "1rem",
+        marginBottom: "2rem"
     }
 });
 

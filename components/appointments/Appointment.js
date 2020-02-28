@@ -25,8 +25,8 @@ const styles = makeStyles({
         }
     },
     root: {
-        marginTop: "2rem",
         padding: "0.5rem",
+        marginBottom: "3rem"
     },
     headerBox: {
         padding: "1.3rem 0"
@@ -35,7 +35,7 @@ const styles = makeStyles({
         height: "70vh",
         overflow: "scroll",
         overflowX: "hidden",
-        scrollBehavior: "smooth"
+        scrollBehavior: "smooth",
     },
 });
 
@@ -83,9 +83,7 @@ const Appointment = () => {
                 if (block.hour === h) {
                     if (block.min === 30 && m >= 30) {
                         block.current = true;
-                        console.log(block.id)
                     } else if(block.min === 0 && m < 30) {
-                        console.log(block.id)
                         block.current = true;
                     } else {
                         block.current = false;

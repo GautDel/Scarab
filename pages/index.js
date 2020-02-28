@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Header from "../components/header/Header";
 import Appointment from "../components/appointments/Appointment";
+import Quote from  "../components/quote/Quote";
 
 
 const Index = () => {
@@ -24,9 +25,13 @@ const Index = () => {
 
   return (
       <Container maxWidth="xl">
-          <Grid container direction="column" >
+          <Grid container direction="row" justify="space-between">
               <Grid item xs={12}> 
                   <Header />
+              </Grid>
+
+              <Grid item xs={12} md={5}>
+                  <Quote/>
               </Grid>
 
               <Grid item xs={12} md={6}>
