@@ -5,6 +5,7 @@ import Header from "../components/header/Header";
 import Appointment from "../components/appointments/Appointment";
 import Quote from  "../components/quote/Quote";
 import Note from  "../components/notes/Note";
+import Todos from  "../components/todos/Todos";
 
 
 const Index = () => {
@@ -34,6 +35,10 @@ const Index = () => {
               <Grid item xs={12} md={4}>
                   <Quote/>
                   <Appointment />
+              </Grid>
+
+              <Grid item xs={12} md={4}>
+                  <Todos />
               </Grid>
 
               <Grid item xs={12} md={3}>

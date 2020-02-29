@@ -1,14 +1,14 @@
-import { useState, useEffect, useContext } from 'react';
-import { TimeContext } from "../../context/TimeContext";
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import CreateIcon from '@material-ui/icons/Create';
 import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import TimeBlock from './TimeBlock';
+import Typography from '@material-ui/core/Typography';
+import { TimeContext } from "../../context/TimeContext";
+import { makeStyles } from '@material-ui/core/styles';
+import { useState, useEffect, useContext } from 'react';
 
 // STYLING //
 const styles = makeStyles({
@@ -25,8 +25,8 @@ const styles = makeStyles({
         }
     },
     root: {
-        padding: "0.5rem",
-        marginBottom: "2rem"
+        marginBottom: "2rem",
+        padding: "0.5rem"
     },
     headerBox: {
         padding: "1.3rem 0"
