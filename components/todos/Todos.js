@@ -1,10 +1,10 @@
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import Form from './Form';
 import Paper from '@material-ui/core/Paper';
+import Todo from './Todo';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Form from './Form';
-import Todo from './Todo';
 
 const styles = makeStyles({
     '@global': {
@@ -27,7 +27,7 @@ const styles = makeStyles({
         padding: "1.3rem 0"
     },
     box: {
-        height: "45vh",
+        minHeight: "30vh",
         overflow: "scroll",
         overflowX: "hidden",
         scrollBehavior: "smooth",
@@ -39,7 +39,7 @@ const Todos = () => {
 
     return (
         <>
-            <Paper className={classes.root}>
+            <Paper elevation={3} className={classes.root}>
                 <Box className={classes.headerBox}>
                     <Typography variant="body1" align="center">
                         TO DO LIST

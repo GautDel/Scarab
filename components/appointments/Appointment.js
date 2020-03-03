@@ -32,7 +32,7 @@ const styles = makeStyles({
         padding: "1.3rem 0"
     },
     box: {
-        height: "55vh",
+        height: "50vh",
         overflow: "scroll",
         overflowX: "hidden",
         scrollBehavior: "smooth",

@@ -1,53 +1,83 @@
-import {makeStyles} from "@material-ui/core/styles"
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Header from "../components/header/Header";
-import Appointment from "../components/appointments/Appointment";
-import Quote from  "../components/quote/Quote";
-import Note from  "../components/notes/Note";
-import Todos from  "../components/todos/Todos";
+import Container from "@material-ui/core/Container";
+import Link from "next/link";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
+const styles = makeStyles({
+  container: {
+    height: "100vh"
+  },
+  input: {
+    margin: "1rem 0"
+  },
+  paper: {
+    padding: "1rem 1.5rem"
+  },
+  text: {
+    margin: "1rem 0"
+  }
+});
 
-const Index = () => {
-    const styles = makeStyles({
-    '@global': {
-    '*::-webkit-scrollbar': {
-        backgroundColor: "rgba(0, 0, 0, 0)",
-      width: '0.4em'
-    },
-    '*::-webkit-scrollbar-track': {
-      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
-    },
-    '*::-webkit-scrollbar-thumb': {
-        backgroundColor: 'rgba(0,0,0,0)',
-    }
-    },
-
-    })
+const Login = () => {
+  const classes = styles();
 
   return (
-      <Container maxWidth="xl">
-          <Grid container direction="row" justify="space-between">
-              <Grid item xs={12}> 
-                  <Header />
+    <>
+      <Container maxWidth="lg" className={classes.container}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className={classes.container}
+        >
+          <Grid item xs={10} sm={6} md={4} lg={3}>
+            <Paper elevation={3} className={classes.paper}>
+              <form>
+                <TextField
+                  id="username"
+                  label="Username"
+                  variant="outlined"
+                  color="primary"
+                  fullWidth={true}
+                  className={classes.input}
+                />
+                <TextField
+                  id="password"
+                  label="Password"
+                  variant="outlined"
+                  color="primary"
+                  fullWidth={true}
+                  className={classes.input}
+                />
+              </form>
+              <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
+                className={classes.text}
+              >
+                <Grid item xs={12} md={6}>
+                  <Typography variant="body2">
+                    <Link href="/register">New User?</Link>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography variant="body2" align="right">
+                    <Link href="/forgot">Forgot password?</Link>
+                  </Typography>
+                </Grid>
               </Grid>
-
-              <Grid item xs={12} md={4}>
-                  <Quote/>
-                  <Appointment />
-              </Grid>
-
-              <Grid item xs={12} md={4}>
-                  <Todos />
-              </Grid>
-
-              <Grid item xs={12} md={3}>
-                  <Note /> 
-              </Grid>
-
+            </Paper>
           </Grid>
+        </Grid>
       </Container>
+    </>
   );
-}
+};
 
-export default Index;
+export default Login;

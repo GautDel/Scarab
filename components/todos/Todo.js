@@ -1,10 +1,10 @@
-import ClearIcon from '@material-ui/icons/Clear';
+import Box from '@material-ui/core/Box';
 import Checkbox from '@material-ui/core/Checkbox';
+import ClearIcon from '@material-ui/icons/Clear';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
 
 const styles = makeStyles({
     todo: {
